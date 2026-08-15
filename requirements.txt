@@ -1,0 +1,11 @@
+flask
+flask-cors
+ultralytics
+opencv-python
+python-dotenv
+torch
+torchvision
+pandas
+numpy
+scipy
+twilio

@@ -1,0 +1,32 @@
+# Environment variables
+.env
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+.venv/
+venv/
+env/
+
+# Node/Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
+build/
+
+# Temporary storage for images and videos
+temp/
+videos/
+photo/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/

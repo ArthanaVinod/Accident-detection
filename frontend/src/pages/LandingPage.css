@@ -1,0 +1,245 @@
+:root {
+  --bg: #02040a;
+  --red: #FF0000;
+  --red-glow: rgba(255, 0, 0, 0.4);
+  --glass: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.1);
+  --text: #ffffff;
+  --muted: #888888;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  overflow-x: hidden;
+}
+
+.landing-wrapper {
+  position: relative;
+  min-height: 300vh; /* For scroll space */
+}
+
+/* 3D Background */
+.three-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* UI Sections */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+  font-size: 0.9rem;
+}
+
+.logo .red { color: var(--red); }
+
+.hero-main h1 {
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 800;
+  line-height: 0.85;
+  margin: 0;
+  letter-spacing: -0.04em;
+}
+
+.outline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text);
+}
+
+.hero-main p {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 2rem auto;
+  line-height: 1.6;
+}
+
+.cta-group {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--red);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 20px var(--red-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px var(--red-glow);
+}
+
+.btn-outline {
+  background: transparent;
+  color: white;
+  border: 1px solid var(--border);
+  padding: 1rem 2.5rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-outline:hover {
+  background: var(--glass);
+}
+
+.btn-secondary {
+  background: var(--glass);
+  color: white;
+  border: 1px solid var(--border);
+  padding: 0.8rem 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+/* Scroll Hint */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.4rem;
+  color: var(--muted);
+}
+
+.indicator-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--red), transparent);
+}
+
+/* Feature Section */
+.feature-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 10vh 4rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.bento-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  padding: 3rem;
+  backdrop-filter: blur(20px);
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.bento-card:hover { border-color: var(--red); }
+
+.bento-card.x-large { grid-column: span 2; }
+
+.tag {
+  color: var(--red);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.bento-card h3 {
+  font-size: 2rem;
+  margin: 1rem 0;
+  font-weight: 800;
+}
+
+.bento-card p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4rem;
+  border-top: 1px solid var(--border);
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .navbar { padding: 1.5rem; }
+  .nav-actions { display: none; }
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-card.x-large { grid-column: span 1; }
+  .hero-main h1 { font-size: 4rem; }
+}
